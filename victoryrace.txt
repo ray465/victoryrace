@@ -1,0 +1,16 @@
+game:service"RunService".Stepped:Connect(function()
+    for i,v in next, workspace:GetChildren() do
+        if v.Name == "Win" then
+            if v:FindFirstChild("TouchInterest") then
+                firetouchinterest(v, game.Players.LocalPlayer.Character.HumanoidRootPart, 0)
+                firetouchinterest(v, game.Players.LocalPlayer.Character.HumanoidRootPart, 1)
+            end
+        end
+    end
+end)
+
+lPlayer = game:GetService("Players").LocalPlayer
+lPlayer.CharacterAdded:Connect(function()
+    lPlayer.Character:WaitForChild("Humanoid"):ChangeState(Enum.HumanoidStateType.Dead)
+end)
+lPlayer.Character:WaitForChild("Humanoid"):ChangeState(Enum.HumanoidStateType.Dead)
